@@ -1,0 +1,12 @@
+.vscode
+/.idea
+__pycache__
+/venv
+.env
+
+# DB
+/migrations/
+
+
+#
+/certification
