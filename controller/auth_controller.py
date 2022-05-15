@@ -34,11 +34,6 @@ def signup():
 
 @bp.get('/login')
 def login():
-  # credential = request.json
-  # email = credential['email']
-  # password = credential['password']
-
-  # print(email, password)
 
   res_dict = request.args.to_dict()
   if res_dict.get('email') and res_dict.get('pw'):
@@ -59,8 +54,7 @@ def login():
     return '로그인 실패', 401
 
 
-
-@bp.route('/logout/')
+@bp.route('/logout')
 def logout():
     session.clear()
     return '로그아웃 성공'
