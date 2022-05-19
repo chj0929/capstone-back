@@ -9,8 +9,7 @@ class User(db.Model):
   nickname = db.Column(db.String(30))
   user_class = db.Column(db.String(10))
 
-  # comment = db.relationship('Comment', backref='user')
-
+  @property
   def serialize(self):
     return {
       "id": self.id,
@@ -20,6 +19,3 @@ class User(db.Model):
       "user_class": self.user_class
     }
 
-# https://riptutorial.com/flask/example/31786/relationships--one-to-many
-# https://opentutorials.org/module/3669/22070
-# https://www.youtube.com/watch?v=eip6UTUG60I

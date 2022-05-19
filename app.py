@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
@@ -29,17 +29,35 @@ def create_app():
   # 스키마 가져오기 + router 에서 사용하기 위해
   db.init_app(app)
   migrate.init_app(app, db)
-  import models
+  import model
 
   ######################################################
 
   CORS(app)
 
   # view
-  from views import create_endpoints
+  from controller import create_endpoints
   create_endpoints(app)
 
   return app
+
+## 구글링에서 찾은 방식 app.py
+#  @Bestseller.route("/Bestseller")
+  #  def Bestseller():
+  #    return render_template("Bestseller.html")
+
+  #  @Book.route("/Book")
+  # def Book():
+  #   return render_template("Book.html")
+
+  #  @Likeslog.route("/Likeslog")
+  #  def Likeslog():
+  #   return render_template("Likeslog.html")
+
+  #  @Review.route("/Review")
+  #  def Review():
+#   return render_template("Review.html")
+
 
 if __name__ == "__main__":
   app = create_app()
